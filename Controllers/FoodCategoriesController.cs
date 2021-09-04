@@ -12,11 +12,13 @@ using FoodHub.ViewModels;
 
 namespace FoodHub.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class FoodCategoriesController : Controller
     {
         private FoodContext db = new FoodContext();
 
         // GET: FoodCategories
+        [AllowAnonymous]
         public ActionResult Index() => View(db.FoodCategories.OrderBy(c => c.Name).ToList());
         
 

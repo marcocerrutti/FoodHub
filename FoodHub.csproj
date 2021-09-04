@@ -175,6 +175,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FoodCategoriesController.cs" />
     <Compile Include="Controllers\FoodCategoryImagesController.cs" />
@@ -182,62 +183,26 @@
     <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="Controllers\VendorImagesController.cs" />
     <Compile Include="Controllers\VendorsController.cs" />
-    <Compile Include="Migrations\202108121230184_VendorandCateImages.cs" />
-    <Compile Include="Migrations\202108121230184_VendorandCateImages.Designer.cs">
-      <DependentUpon>202108121230184_VendorandCateImages.cs</DependentUpon>
+    <Compile Include="Migrations\202109031424080_twocontextreset.cs" />
+    <Compile Include="Migrations\202109031424080_twocontextreset.Designer.cs">
+      <DependentUpon>202109031424080_twocontextreset.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108121254476_FoodcatImage.cs" />
-    <Compile Include="Migrations\202108121254476_FoodcatImage.Designer.cs">
-      <DependentUpon>202108121254476_FoodcatImage.cs</DependentUpon>
+    <Compile Include="Migrations\202109031431192_update_user_fields.cs" />
+    <Compile Include="Migrations\202109031431192_update_user_fields.Designer.cs">
+      <DependentUpon>202109031431192_update_user_fields.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108121352168_UniqueFileNameFoodCatImage.cs" />
-    <Compile Include="Migrations\202108121352168_UniqueFileNameFoodCatImage.Designer.cs">
-      <DependentUpon>202108121352168_UniqueFileNameFoodCatImage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108130647164_CreateFoodCategoryImageMappings.cs" />
-    <Compile Include="Migrations\202108130647164_CreateFoodCategoryImageMappings.Designer.cs">
-      <DependentUpon>202108130647164_CreateFoodCategoryImageMappings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108181305049_CreateVendorImageMappings.cs" />
-    <Compile Include="Migrations\202108181305049_CreateVendorImageMappings.Designer.cs">
-      <DependentUpon>202108181305049_CreateVendorImageMappings.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\FoodCategoryImage.cs" />
     <Compile Include="DAL\FoodContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108101510297_InitialCreate.cs" />
-    <Compile Include="Migrations\202108101510297_InitialCreate.Designer.cs">
-      <DependentUpon>202108101510297_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108102033057_InitialDatabase.cs" />
-    <Compile Include="Migrations\202108102033057_InitialDatabase.Designer.cs">
-      <DependentUpon>202108102033057_InitialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108102234016_FoodCategoryValidation.cs" />
-    <Compile Include="Migrations\202108102234016_FoodCategoryValidation.Designer.cs">
-      <DependentUpon>202108102234016_FoodCategoryValidation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108102254555_FoodValidation.cs" />
-    <Compile Include="Migrations\202108102254555_FoodValidation.Designer.cs">
-      <DependentUpon>202108102254555_FoodValidation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108111556404_FoodImages.cs" />
-    <Compile Include="Migrations\202108111556404_FoodImages.Designer.cs">
-      <DependentUpon>202108111556404_FoodImages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108112148083_UniqueFileName.cs" />
-    <Compile Include="Migrations\202108112148083_UniqueFileName.Designer.cs">
-      <DependentUpon>202108112148083_UniqueFileName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108112326156_CreateProductImageMappings.cs" />
-    <Compile Include="Migrations\202108112326156_CreateProductImageMappings.Designer.cs">
-      <DependentUpon>202108112326156_CreateProductImageMappings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\FoodConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodCategory.cs" />
@@ -251,6 +216,7 @@
     <Compile Include="Models\VendorImageMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\FoodCategoryViewModel.cs" />
     <Compile Include="ViewModels\FoodIndexViewModel.cs" />
     <Compile Include="ViewModels\FoodViewModel.cs" />
@@ -299,14 +265,12 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
@@ -342,6 +306,24 @@
     <Content Include="Views\VendorImages\Edit.cshtml" />
     <Content Include="Views\VendorImages\Index.cshtml" />
     <Content Include="Views\Shared\_FoodEditCreatePartial.cshtml" />
+    <Content Include="Views\RolesAdmin\Index.cshtml" />
+    <Content Include="Views\RolesAdmin\Details.cshtml" />
+    <Content Include="Views\RolesAdmin\Create.cshtml" />
+    <Content Include="Views\RolesAdmin\Edit.cshtml" />
+    <Content Include="Views\RolesAdmin\Delete.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\UsersAdmin\Index.cshtml" />
+    <Content Include="Views\UsersAdmin\Details.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Address.cshtml" />
+    <Content Include="Views\UsersAdmin\Create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Address.cshtml" />
+    <Content Include="Views\UsersAdmin\Edit.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_CreateRegisterUserPartial.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Shared\_UserDetailsPartial.cshtml" />
+    <Content Include="Views\Manage\Edit.cshtml" />
+    <Content Include="Views\Shared\_EditUserPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -363,41 +345,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108101510297_InitialCreate.resx">
-      <DependentUpon>202108101510297_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109031424080_twocontextreset.resx">
+      <DependentUpon>202109031424080_twocontextreset.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108102033057_InitialDatabase.resx">
-      <DependentUpon>202108102033057_InitialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108102234016_FoodCategoryValidation.resx">
-      <DependentUpon>202108102234016_FoodCategoryValidation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108102254555_FoodValidation.resx">
-      <DependentUpon>202108102254555_FoodValidation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108111556404_FoodImages.resx">
-      <DependentUpon>202108111556404_FoodImages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108112148083_UniqueFileName.resx">
-      <DependentUpon>202108112148083_UniqueFileName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108112326156_CreateProductImageMappings.resx">
-      <DependentUpon>202108112326156_CreateProductImageMappings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108121230184_VendorandCateImages.resx">
-      <DependentUpon>202108121230184_VendorandCateImages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108121254476_FoodcatImage.resx">
-      <DependentUpon>202108121254476_FoodcatImage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108121352168_UniqueFileNameFoodCatImage.resx">
-      <DependentUpon>202108121352168_UniqueFileNameFoodCatImage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108130647164_CreateFoodCategoryImageMappings.resx">
-      <DependentUpon>202108130647164_CreateFoodCategoryImageMappings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108181305049_CreateVendorImageMappings.resx">
-      <DependentUpon>202108181305049_CreateVendorImageMappings.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109031431192_update_user_fields.resx">
+      <DependentUpon>202109031431192_update_user_fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

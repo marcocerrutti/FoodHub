@@ -13,11 +13,13 @@ using PagedList;
 
 namespace FoodHub.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class FoodsController : Controller
     {
         private FoodContext db = new FoodContext();
 
         // GET: Foods
+        [AllowAnonymous]
         public ActionResult Index(string category, string vendor, string search, string sortBy, int? page)
         {
 
@@ -122,6 +124,7 @@ namespace FoodHub.Controllers
         }
 
         // GET: Foods/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
